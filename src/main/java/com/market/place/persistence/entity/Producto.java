@@ -11,6 +11,10 @@ public class Producto {
     @Column(name = "id_producto")
     private Integer idProducto;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria",insertable = false,updatable = false)
+    private Categoria categoria;
+
     private String nombre;
 
     @Column(name = "id_categoria")
