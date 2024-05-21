@@ -2,6 +2,8 @@ package com.market.place.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="productos")
 public class Producto {

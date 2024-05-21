@@ -14,8 +14,9 @@ import java.util.List;
 //Metodo MapStruck
 
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
-public interface CategoryMapper {
-    @Mappings({
+abstract
+class CategoryMapper {
+    @Mappings(value = {
             @Mapping(source = "idProducto", target = "productId"),
             @Mapping(source = "nombre", target = "name"),
             @Mapping(source = "idCategoria", target = "categoryId"),
@@ -24,10 +25,10 @@ public interface CategoryMapper {
             @Mapping(source = "estado", target = "active"),
             @Mapping(source = "categoria", target = "category"),
     })
-    Product toProduct(Producto producto);
-    List<Product> toProducts(List<Producto> productos);
+    public abstract Product toProduct(Producto producto);
+    public abstract List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
     @Mapping(target = "codigoBarras", ignore = true)
-    Producto toProducto(Product product);
+    public abstract Producto toProducto(Product product);
 }
